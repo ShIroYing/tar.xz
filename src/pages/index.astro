@@ -14,14 +14,7 @@ const description = '你可以尝试在这里获得一个空空的 tar.xz，或�
 	<head>
 		<meta charset='UTF-8' />
 		<meta name='viewport' content='width=device-width' />
-		<SEO
-			{title}
-			{description}
-			canonical={new URL(Astro.url.pathname, Astro.site)}
-			extend={{
-				meta: [{ name: 'baidu-site-verification', content: 'codeva-12lSsugOP8' }]
-			}}
-		/>
+		<SEO {title} {description} canonical={new URL(Astro.url.pathname, Astro.site)} />
 		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
 	</head>
 
