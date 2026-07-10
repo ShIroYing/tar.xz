@@ -1,0 +1,42 @@
+---
+import { SEO } from 'astro-seo'
+
+import WasmFallback from '@/components/WasmFallback.astro'
+import '@/styles/global.css'
+
+const title = '要随时随地来一个 tar.xz 压缩包吗（不是）'
+const description = '你可以尝试在这里获得一个空空的 tar.xz，或者一个充满爱意的 tar.xz！'
+---
+
+<html
+	style="text-autospace:normal;text-spacing-trim:trim-start;font-feature-settings:'palt';font-variant-ligatures:common-ligatures;font-optical-sizing:auto;font-smooth:always;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;hyphens:auto"
+	lang='zh-Hans'>
+	<head>
+		<meta charset='UTF-8' />
+		<meta name='viewport' content='width=device-width' />
+		<SEO
+			{title}
+			{description}
+			canonical={new URL(Astro.url.pathname, Astro.site)}
+			extend={{
+				meta: [{ name: 'baidu-site-verification', content: 'codeva-12lSsugOP8' }]
+			}}
+		/>
+		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+	</head>
+
+	<body>
+		<template id='wasm-fallback' data-nosnippet>
+			<WasmFallback />
+		</template>
+
+		<script>
+			import('@/wasm/tar_xz').catch(error => {
+				console.error(error)
+
+				const fallback = document.getElementById('wasm-fallback')
+				if (fallback instanceof HTMLTemplateElement) document.body.replaceChildren(fallback.content.cloneNode(true))
+			})
+		</script>
+	</body>
+</html>

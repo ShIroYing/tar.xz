@@ -1,0 +1,22 @@
+semi: false
+singleQuote: true
+jsxSingleQuote: true
+trailingComma: none
+bracketSameLine: true
+arrowParens: avoid
+
+importOrder: ['<THIRD_PARTY_MODULES>', '^@(?!@|/)', '^#', '^@@/', '^~~/', '^@/', '^~/', '^[./]']
+importOrderSeparation: true
+importOrderSortSpecifiers: true
+importOrderGroupNamespaceSpecifiers: true
+
+astroAllowShorthand: true
+
+plugins:
+  - prettier-plugin-astro
+  - '@trivago/prettier-plugin-sort-imports'
+
+overrides:
+  - files: '*.astro'
+    options:
+      parser: astro

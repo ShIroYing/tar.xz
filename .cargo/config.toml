@@ -1,0 +1,15 @@
+[build]
+target = "wasm32-unknown-unknown"
+rustflags = ["-Z", "unstable-options", "-C", "panic=immediate-abort"]
+
+[unstable]
+build-std = ["std", "panic_abort"]
+build-std-features = ["optimize_for_size"]
+unstable-options = true
+panic-immediate-abort = true
+profile-rustflags = true
+
+[profile.release]
+rustflags = ["-C", "link-arg=-s", "-Z", "location-detail=none", "-Z", "fmt-debug=shallow"]
+[profile.dev]
+rustflags = ["-Z", "panic-abort-tests"]
