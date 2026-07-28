@@ -6,13 +6,10 @@
 target/
 dist/
 
-# generated
-.astro/
-.vite-hooks/
-.playwright-cli/
-
-# dependencies
-node_modules/
-
 # macOS-specific
 .DS_Store
+
+# Tencent Cloud EdgeOne
+.env
+.edgeone/*
+.tef_dist/*

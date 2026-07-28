@@ -1,7 +1,5 @@
 @echo off
 
-bun update --latest
-
-cd native
-cargo upgrade --incompatible
-cargo update
+go get github.com/klauspost/compress@latest
+go get github.com/dsnet/compress@latest
+go get github.com/ulikunitz/xz@latest

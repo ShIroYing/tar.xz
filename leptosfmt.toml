@@ -1,4 +1,0 @@
-max_width = 127
-indentation_style = "Tabs"
-attr_value_brace_style = "WhenRequired"
-closing_tag_style = "SelfClosing"
